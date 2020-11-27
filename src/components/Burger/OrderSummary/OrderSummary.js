@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Aux from '../../../hoc/Aux';
 import Button from '../../UI/Button/Button';
+import { Link } from 'react-router-dom';
 
-const OrderSummary = (props) => {
+class OrderSummary extends Component {
 
-    const ingredientList = Object.keys(props.ingredients).map((ingredient) => {
-        return(<li key={ingredient}><span style={{ textTransform: 'capitalize'}}>{ingredient}</span>: {props.ingredients[ingredient]}</li>)
-        })
-    
+    componentDidUpdate() {
+        console.log('[OrderSummary.js] updated')
+    }
+
+    render() {
+        const ingredientList = Object.keys(this.props.ingredients).map((ingredient) => {
+            return(<li key={ingredient}><span style={{ textTransform: 'capitalize'}}>{ingredient}</span>: {this.props.ingredients[ingredient]}</li>)
+            })
+        
     return (
         <Aux>
             <h3>Your Order</h3>
@@ -16,13 +22,14 @@ const OrderSummary = (props) => {
                 {ingredientList}
             </ul>
             <p>Continue to Checkout?</p>
-            <strong><p>Total Price: {props.totalPrice.toFixed(2)}</p></strong>  
-            <Button clicked={props.clicked} btnType='Danger'>CANCEL</Button>
-            <Button clicked={props.continue} btnType='Success'>ORDER</Button>
+            <strong><p>Total Price: {this.props.totalPrice.toFixed(2)}</p></strong>  
+                <Button clicked={this.props.clicked} btnType='Danger'>CANCEL</Button>
+                <Button clicked={this.props.continue} btnType='Success'>ORDER</Button>
+        
             
         </Aux>
 
-    );
+    );}
 }
 
 export default OrderSummary;

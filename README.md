@@ -1,3 +1,9 @@
+## Burger Maker
+
+An application scripted in R eact and deployed on F irebase, which lets users order burgers by choosing various ingredients. Utilizes proper
+authentication and from validation and implements routing uses R eact Router.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
